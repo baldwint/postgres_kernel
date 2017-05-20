@@ -138,6 +138,7 @@ Error: Unable to connect to a database at "{}".
                     'ename': 'ProgrammingError', 'evalue': str(e),
                     'traceback': []}
         else:
+            self._conn.commit()
             if header is not None:
                 self.send_response(self.iopub_socket, 'display_data', display_data(header, rows))
 
